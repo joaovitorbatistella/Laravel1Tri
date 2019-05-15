@@ -6,7 +6,7 @@ use App\Mensagem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class mensagensController extends Controller
+class MensagemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class mensagensController extends Controller
      */
     public function index()
     {
-        $listaMensagens = Mensagem::all();
-        return view('mensagem.list',['mensagens' => $listaMensagens]);
+        $listaMensagem = Mensagem::all();
+        return view('mensagens.list',['mensagens' => $listaMensagem]);
     }
 
     /**
@@ -59,10 +59,10 @@ class mensagensController extends Controller
             ->withInput($request->all);
         }
         //se passou pelas validações, processa e salva no banco...
-        $obj_Mensagens = new Mensagem();
-        $obj_Mensagens->title =       $request['title'];
-        $obj_Mensagens->description = $request['autor'];
-        $obj_Mensagens->save();
+        $obj_Mensagem = new Mensagem();
+        $obj_Mensagem->title =       $request['title'];
+        $obj_Mensagem->description = $request['autor'];
+        $obj_Mensagem->save();
         return redirect('/mensagens')->with('success', 'Mensagem criada com sucesso!!');
 
     }
@@ -70,45 +70,76 @@ class mensagensController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Mensagens  $mensagens
+     * @param  \App\Mensagem  $mensagens
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $mensagens = Mensagem::find($id);
-        return view('mensagem.show', ['mensagem' => $mensagens]);
+        return view('mensagens.show', ['mensagens' => $mensagens]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Mensagens  $mensagens
+     * @param  \App\Mensagem  $mensagens
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mensagens $mensagens)
+    public function edit(Mensagem $id)
     {
-        //
+        $obj_Mensagem = Mensagem::find($id)->first();
+        //dd($obj_Mensagem);
+        return view('mensagens.edit', ['mensagens' => $obj_Mensagem]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Mensagens  $mensagens
+     * @param  \App\Mensagem  $mensagens
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mensagens $mensagens)
+    public function update(Request $request, $id)
     {
-        //
+        //faço as validações dos campos
+        //vetor com as mensagens de erro
+        $messages = array(
+            'titulo.required' => 'É obrigatório um título para a atividade',
+            'autor.required' => 'É obrigatória uma descrição para a atividade',
+            'mensagem.required' => 'É obrigatório o cadastro da mensagem',
+        );
+        //vetor com as especificações de validações
+        $regras = array(
+            'titulo' => 'required|string|max:255',
+            'autor' => 'required',
+            'mensagem' => 'required|string',
+        );
+        //cria o objeto com as regras de validação
+        $validador = Validator::make($request->all(), $regras, $messages);
+        //executa as validações
+        if ($validador->fails()) {
+            return redirect("mensagens/$id/edit")
+            ->withErrors($validador)
+            ->withInput($request->all);
+        }
+        //se passou pelas validações, processa e salva no banco...
+        $obj_Mensagem = Mensagem::findOrFail($id);
+        //dd($obj_Mensagem);
+        $obj_Mensagem->titulo =       $request['titulo'];
+        $obj_Mensagem->autor = $request['autor'];
+        $obj_Mensagem->mensagem = $request['mensagem'];
+        $obj_Mensagem->save();
+        return redirect('/mensagens')->with('success', 'Mensagem criada com sucesso!!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Mensagens  $mensagens
+     * @param  \App\Mensagem  $mensagens
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mensagens $mensagens)
+    
+    public function destroy(Mensagem $mensagens)
     {
         //
     }

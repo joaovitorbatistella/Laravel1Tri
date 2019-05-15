@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\mensagens;
+use App\Mensagem;
 
 
 class mensagensTableSeeder extends Seeder
@@ -13,15 +13,16 @@ class mensagensTableSeeder extends Seeder
      */
     public function run()
     {
-        mensagens::create([
+        Mensagem::create([
             'titulo' => 'Bom dia',
             'autor' => 'Lammel',
-            
+            'mensagem' => 'oi'
         ]);
 
-        mensagens::create([
+        Mensagem::create([
             'titulo' => 'Bom noite',
             'autor' => 'Lammel',
+            'mensagem' => 'oi'
         ]);
     }
 }
