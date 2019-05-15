@@ -1,7 +1,7 @@
 <h1>Mensagem{{$mensagens->id}}</h1>
 <hr>
-<h3><b>Título:</b>{{$mensagens->titulo}}</h3>
-<h3><b>Autor:</b>{{$mensagens->autor}}</h3>
-<h3><b>Mensagens:</b>{{$mensagens->mensagem}}</h3>
+<p><b>Título:</b>{{$mensagens->titulo}}</p>
+<p><b>Autor:</b>{{$mensagens->autor}}</p>
+<p><b>Mensagens:</b>{{$mensagens->mensagem}}</p>
 <br>
 <a href="/mensagens/{{$mensagens->id}}/edit">editar</a>

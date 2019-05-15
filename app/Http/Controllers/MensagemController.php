@@ -40,15 +40,15 @@ class MensagemController extends Controller
         //faço as validações dos campos
         //vetor com as mensagens de erro
         $messages = array(
-            'title.required' => 'É obrigatório um título para a atividade',
-            'description.required' => 'É obrigatória uma descrição para a atividade',
-            'scheduledto.required' => 'É obrigatório o cadastro da data/hora da atividade',
+            'titulo.required' => 'É obrigatório um título para a atividade',
+            'autor.required' => 'É obrigatória uma descrição para a atividade',
+            'mensagem.required' => 'É obrigatório o cadastro da data/hora da atividade',
         );
         //vetor com as especificações de validações
         $regras = array(
-            'title' => 'required|string|max:255',
-            'description' => 'required',
-            'scheduledto' => 'required|string',
+            'titulo' => 'required|string|max:255',
+            'autor' => 'required',
+            'mensagem' => 'required|string',
         );
         //cria o objeto com as regras de validação
         $validador = Validator::make($request->all(), $regras, $messages);
@@ -60,8 +60,9 @@ class MensagemController extends Controller
         }
         //se passou pelas validações, processa e salva no banco...
         $obj_Mensagem = new Mensagem();
-        $obj_Mensagem->title =       $request['title'];
-        $obj_Mensagem->description = $request['autor'];
+        $obj_Mensagem->titulo =       $request['titulo'];
+        $obj_Mensagem->autor = $request['autor'];
+        $obj_Mensagem->mensagem = $request['mensagem'];
         $obj_Mensagem->save();
         return redirect('/mensagens')->with('success', 'Mensagem criada com sucesso!!');
 

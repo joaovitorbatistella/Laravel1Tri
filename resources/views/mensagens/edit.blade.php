@@ -17,7 +17,7 @@
     </div>
     @endif
 
-<h1>Formulário de Cadastro de Mensagens</h1>
+<h1>Formulário de Update de Mensagens</h1>
 <hr>
 <form action="/mensagens/{{$mensagens->id}}" method="post">
     {{ csrf_field() }}
