@@ -8,3 +8,7 @@
     Mensagem:            <input type="text" name="mensagem"> <br>
     <input type="submit" value="Salvar">
 </form>
+<br>
+<br>
+<br>
+<a href="/mensagens/">Mostar Mensagem</a>

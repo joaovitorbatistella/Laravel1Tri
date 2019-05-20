@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mensagem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 
 class MensagemController extends Controller
 {
@@ -139,9 +140,18 @@ class MensagemController extends Controller
      * @param  \App\Mensagem  $mensagens
      * @return \Illuminate\Http\Response
      */
-    
-    public function destroy(Mensagem $mensagens)
+    public function delete($id)
     {
-        //
+        $obj_Mensagem = Mensagem::find($id);
+        return view('mensagens.delete', ['mensagens' => $obj_Mensagem]);
     }
+    
+    public function destroy($id)
+    {
+        $obj_Mensagem = Mensagem::findOrFail($id);
+        $obj_Mensagem->delete($id);
+        return Redirect('/mensagens')->with('sucess', 'Atividade excluída com Sucesso!');
+    }
+
+   
 }

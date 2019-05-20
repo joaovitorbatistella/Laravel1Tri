@@ -29,6 +29,7 @@ Route::post('/mensagens', 'MensagemController@store');
 Route::get('/mensagens/{id}', 'MensagemController@show');
 Route::get('/mensagens/{id}/edit', 'MensagemController@edit');
 Route::put('/mensagens/{id}', 'MensagemController@update');
+Route::get('/mensagens/{id}/delete', 'MensagemController@delete');
 Route::delete('/mensagens/{id}', 'MensagemController@destroy');
 
 

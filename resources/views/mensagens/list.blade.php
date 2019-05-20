@@ -14,7 +14,6 @@
 
 @foreach($mensagens as $m)
     <p><a href="/mensagens/{{$m->id}}">{{$m->titulo}}</a></p>
-    <p>{{$m->titulo}}</p>
     <p>{{$m->autor}}</p>
     <p>{{$m->mensagem}}</p>
     <br>
@@ -27,3 +26,9 @@
 		</div>
 	</div>
 @endif
+<br>
+<br>
+<br>
+<a href="/mensagens/create">Criar Mensagem</a>
+<br>
+<a href="/mensagens/">Mostar Mensagem</a>
