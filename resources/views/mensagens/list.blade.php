@@ -1,4 +1,9 @@
 <h1>Lista de Mensagens<h1>
+@if(Auth::check())
+<a href="/home">Sair</a>
+@else
+<a href="/mensagens/login">Login</a>
+@endif
 <hr>
 @if ($errors->any())
 <div class="container">
@@ -29,6 +34,8 @@
 <br>
 <br>
 <br>
+@if(Auth::check())
 <a href="/mensagens/create">Criar Mensagem</a>
+@endif
 <br>
-<a href="/mensagens/">Mostar Mensagem</a>
+<a href="/mensagens">Mostar Mensagem</a>

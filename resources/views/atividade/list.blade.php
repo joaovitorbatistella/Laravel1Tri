@@ -27,6 +27,9 @@
 		</div>
 	</div>
 @endif
+@if(Auth::check())
+<a href="/atividades/create">Criar Mensagem</a>
+@endif
 
 
 <!-- \Carbon\Carbon::parse($a->scheduledto)->format('d/m/Y h:m')  -->
