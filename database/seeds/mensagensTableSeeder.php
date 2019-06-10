@@ -16,13 +16,17 @@ class mensagensTableSeeder extends Seeder
         Mensagem::create([
             'titulo' => 'Bom dia',
             'autor' => 'Lammel',
-            'mensagem' => 'oi'
+            'mensagem' => 'oi',
+            'user_id' => 1,
+            'atividades_id' => 1
         ]);
 
         Mensagem::create([
             'titulo' => 'Bom noite',
             'autor' => 'Lammel',
-            'mensagem' => 'oi'
+            'mensagem' => 'oi',
+            'user_id' => 1,
+            'atividades_id' => 1
         ]);
     }
 }
