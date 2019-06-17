@@ -23,6 +23,7 @@ Route::middleware(['auth'])-> group(function (){
     Route::get('/atividades/{id}', 'AtividadeController@show');
     Route::get('/atividades/{id}/edit', 'AtividadeController@edit');
     Route::put('/atividades/{id}', 'AtividadeController@update');
+    Route::get('/atividades/{id}/delete', 'AtividadeController@delete');
     Route::delete('/atividades/{id}', 'AtividadeController@destroy');
 
 });

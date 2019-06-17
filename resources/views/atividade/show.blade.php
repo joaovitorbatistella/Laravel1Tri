@@ -8,6 +8,8 @@
 <h3><b>Atualizada em:</b>{{$atividade->updated_at}}</h3>
 <br>
 <a href="/atividades/{{$atividade->id}}/edit">editar</a>
+<a href="/atividades/{{$atividade->id}}/delete">deletar</a>
+
 
 <h1>Mensagens Relacionadas:</h1>
 <table id="tabela" name="tabela" class="table table-striped">
