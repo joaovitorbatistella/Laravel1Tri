@@ -19,11 +19,14 @@ class AddMensagensTable extends Migration
             $table->string('autor');      //descrição da atividade
             $table->string('mensagem');    //agendado para
             $table->integer('user_id')->unsigned(); //guarda o id de quem cadastra
-            $table->integer('atividades_id')->unsigned(); //guarda o id das atividades
+            $table->integer('atividade_id')->unsigned(); //guarda o id das atividades
             $table->timestamps();               //registro created_at e updated_at
         });
 
-        
+        Schema::table('mensagens', function($table){
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('atividade_id')->references('id')->on('atividades');
+        });
 
     }
 
@@ -34,10 +37,6 @@ class AddMensagensTable extends Migration
      */
     public function down()
     {   
-        Schema::table('mensagens', function($table){
-            $table->foreing('user_id')->references('id')->on('users');
-            $table->foreing('atividades_id')->references('id')->on('atividades');
-        });
 
         Schema::table('mensagens', function (Blueprint $table) {
             //

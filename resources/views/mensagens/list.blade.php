@@ -1,4 +1,4 @@
-<h1>Lista de Mensagens<h1>
+<h1>Lista de Mensagens</h1>
 @if(Auth::check())
 <a href="/home">Sair</a>
 @else

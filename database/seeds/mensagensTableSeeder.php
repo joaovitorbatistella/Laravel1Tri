@@ -18,7 +18,7 @@ class mensagensTableSeeder extends Seeder
             'autor' => 'Lammel',
             'mensagem' => 'oi',
             'user_id' => 1,
-            'atividades_id' => 1
+            'atividade_id' => 1
         ]);
 
         Mensagem::create([
@@ -26,7 +26,7 @@ class mensagensTableSeeder extends Seeder
             'autor' => 'Lammel',
             'mensagem' => 'oi',
             'user_id' => 1,
-            'atividades_id' => 1
+            'atividade_id' => 1
         ]);
     }
 }

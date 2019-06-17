@@ -6,6 +6,12 @@
     Título:            <input type="text" name="titulo"> <br>
     Autor:         <input type="text" name="autor"> <br>
     Mensagem:            <input type="text" name="mensagem"> <br>
+
+    Atividade:  <select name="atividade_id">
+                @foreach($listaAtividades as $atividade)
+                    <option value="{{$atividade->id}}">{{$atividade->title}}</option>
+                @endforeach
+                </select>
     <input type="submit" value="Salvar">
 </form>
 <br>
