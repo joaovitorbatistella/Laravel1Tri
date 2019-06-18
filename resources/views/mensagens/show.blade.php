@@ -1,6 +1,6 @@
-<h1>Mensagem{{$mensagens->id}}</h1>
+<h1>Mensagem {{$mensagens->id}} </h1>
 <hr>
-<h3><b>Ref. Ativ.:</b> {{$mensagens->atividade->id}} </h3>
+<h3><b>Ref. Ativ.:</b> {{$mensagens->atividade_id}} </h3>
 <br>
 <h3><b>ID:</b>{{$mensagens->id}}</h3>
 <h3><b>Autor:</b>{{$mensagens->autor}}</h3>
