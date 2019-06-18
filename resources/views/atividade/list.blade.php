@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <h1>Lista de Atividades</h1>
 <hr>
 <!-- EXIBE MENSAGENS DE ERROS -->
@@ -30,6 +34,9 @@
 @if(Auth::check())
 <a href="/atividades/create">Criar Mensagem</a>
 @endif
+
+
+@endsection
 
 
 <!-- \Carbon\Carbon::parse($a->scheduledto)->format('d/m/Y h:m')  -->
