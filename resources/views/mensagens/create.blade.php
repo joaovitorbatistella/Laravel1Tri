@@ -1,4 +1,6 @@
+@extends('layouts.app')
 
+@section('content')
 <h1>Formulário de Cadastro de Mensagens</h1>
 <hr>
 <form action="/mensagens" method="post">
@@ -18,3 +20,4 @@
 <br>
 <br>
 <a href="/mensagens/">Mostar Mensagem</a>
+@endsection

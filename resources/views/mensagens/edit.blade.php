@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 @if ($errors->any())
     <div class="container">
       <div class="alert alert-danger">
@@ -31,3 +35,4 @@
 <br>
 <br>
 <a href="/mensagens/">Mostar Mensagem</a>
+@endsection

@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <h1>Formulário de Exclusão de Mensagens</h1>
 <hr>
 <form action="/mensagens/{{$mensagens->id}}" method="post">
@@ -10,3 +13,4 @@
 <br>
 <br>
 <a href="/mensagens/">Mostar Mensagem</a>
+@endsection

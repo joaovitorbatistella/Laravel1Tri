@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <h1>Lista de Mensagens</h1>
 @if(Auth::check())
 <a href="/home">Sair</a>
@@ -39,3 +42,4 @@
 @endif
 <br>
 <a href="/mensagens">Mostar Mensagem</a>
+@endsection

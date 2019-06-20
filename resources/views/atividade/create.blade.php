@@ -1,4 +1,6 @@
+@extends('layouts.app')
 
+@section('content')
 <h1>Formulário de Cadastro de Atividades</h1>
 <hr>
 @if ($errors->any())
@@ -19,3 +21,4 @@
     Agendado para:     <input type="datetime-local" name="scheduledto"> <br>
     <input type="submit" value="Salvar">
 </form>
+@endsection

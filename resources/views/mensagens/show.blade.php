@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <h1>Mensagem {{$mensagens->id}} </h1>
 <hr>
 <h3><b>Ref. Ativ.:</b> {{$mensagens->atividade_id}} </h3>

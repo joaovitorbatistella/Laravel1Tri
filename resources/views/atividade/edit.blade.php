@@ -1,4 +1,6 @@
+@extends('layouts.app')
 
+@section('content')
 <h1>Formulário de Cadastro de Atividades</h1>
 <hr>
 @if ($errors->any())
@@ -20,3 +22,4 @@
     Agendado para:     <input type="datetime-local" name="scheduledto" value="{{Carbon\Carbon::parse($atividade->scheduledto)->format('Y-m-d\TH:i:s')}}"> <br>
     <input type="submit" value="Salvar">
 </form>
+@endsection
