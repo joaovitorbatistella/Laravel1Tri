@@ -26,6 +26,7 @@
     <p>{{$m->mensagem}}</p>
     <br>
 @endforeach
+{{ $mensagens->links() }}
 
 @if(\Session::has('sucess'))
 	<div class="container">
