@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Atividade;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Dompdf\Dompdf;
 
 class AtividadeController extends Controller
 {
@@ -148,5 +149,41 @@ class AtividadeController extends Controller
         $obj_Atividade = Atividade::findOrFail($id);
         $obj_Atividade->delete($id);
         return Redirect('/atividades')->with('sucess', 'Atividade excluída com Sucesso!');
+    }
+
+    public function gerarPdf(){
+        $dompdf = new Dompdf();
+        $pagina = '<html>
+       
+        <h1>Lista de Atividades</h1>
+        <hr>
+        <!-- EXIBE MENSAGENS DE ERROS -->
+        
+        
+        @foreach($atividades as $a)
+            <h3>{{$a->scheduledto}}</h3>
+    
+            <p>{{$a->description}}</p>
+            <br>
+        @endforeach
+        
+        
+        
+       
+        </html>';
+        $dompdf->loadHtml($pagina);
+
+        // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('A4', 'landscape');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser
+        return$dompdf->stream();
+    }
+    public function gerar(){
+        
+        return view('atividade.gerarPdf');
     }
 }

@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('/atividades/gerar', 'AtividadeController@gerar');
 Route::get('/atividades', 'AtividadeController@index');
 Route::middleware(['auth'])-> group(function (){
     Route::get('/atividades/create', 'AtividadeController@create');
@@ -25,6 +25,7 @@ Route::middleware(['auth'])-> group(function (){
     Route::put('/atividades/{id}', 'AtividadeController@update');
     Route::get('/atividades/{id}/delete', 'AtividadeController@delete');
     Route::delete('/atividades/{id}', 'AtividadeController@destroy');
+    
 
 });
 
@@ -37,10 +38,12 @@ Route::middleware(['auth'])-> group(function (){
     Route::put('/mensagens/{id}', 'MensagemController@update');
     Route::get('/mensagens/{id}/delete', 'MensagemController@delete');
     Route::delete('/mensagens/{id}', 'MensagemController@destroy');
+    
 });
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/teste','AtividadeController@gerarPdf');
 
 //Route::prefix('admin')->middleware("auth")->namespace("admin")->group(function(){
 //});
