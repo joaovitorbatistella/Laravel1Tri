@@ -11,6 +11,16 @@
 <h3><b>Criada em:</b>{{$atividade->created_at}}</h3>
 <h3><b>Atualizada em:</b>{{$atividade->updated_at}}</h3>
 <br>
+<form action="\teste" method="GET">
+<label></label>
+<input type="hidden"  value="{{$atividade->title}}" name="titulo">
+<input type="hidden"  value="{{$atividade->description}}" name="txt">
+<input type="hidden"  value="{{$atividade->scheduledto}}" name="data">
+
+<input type=submit value="GERAR PDF DA ATIVIDADE">
+</form>
+<br>
+<br>
 <a href="/atividades/{{$atividade->id}}/edit">editar</a>
 <a href="/atividades/{{$atividade->id}}/delete">deletar</a>
 
@@ -34,4 +44,9 @@
         @endforeach
     </tbody>
 </table>
+
+
+
+
+
 @endsection

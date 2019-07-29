@@ -152,26 +152,12 @@ class AtividadeController extends Controller
     }
 
     public function gerarPdf(){
+        $pgTitulo = $_GET["titulo"];
+        $pgTxt = $_GET["txt"];
+        $pgData = $_GET["data"];
         $dompdf = new Dompdf();
-        $pagina = '<html>
-       
-        <h1>Lista de Atividades</h1>
-        <hr>
-        <!-- EXIBE MENSAGENS DE ERROS -->
-        
-        
-        @foreach($atividades as $a)
-            <h3>{{$a->scheduledto}}</h3>
-    
-            <p>{{$a->description}}</p>
-            <br>
-        @endforeach
-        
-        
-        
-       
-        </html>';
-        $dompdf->loadHtml($pagina);
+        $textofinal = "Título atividade: ".$pgTitulo."<br> Texto Atividade: ".$pgTxt."<br> Data Atividade: ".$pgData ; 
+        $dompdf->loadHtml($textofinal);
 
         // (Optional) Setup the paper size and orientation
         $dompdf->setPaper('A4', 'landscape');
@@ -182,6 +168,7 @@ class AtividadeController extends Controller
         // Output the generated PDF to Browser
         return$dompdf->stream();
     }
+
     public function gerar(){
         
         return view('atividade.gerarPdf');

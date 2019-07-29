@@ -17,20 +17,13 @@ Route::get('/', function () {
 
 Route::get('/atividades/gerar', 'AtividadeController@gerar');
 Route::get('/atividades', 'AtividadeController@index');
-Route::middleware(['auth'])-> group(function (){
-    Route::get('/atividades/create', 'AtividadeController@create');
+Route::get('/atividades/create', 'AtividadeController@create');
     Route::post('/atividades', 'AtividadeController@store');
     Route::get('/atividades/{id}', 'AtividadeController@show');
     Route::get('/atividades/{id}/edit', 'AtividadeController@edit');
     Route::put('/atividades/{id}', 'AtividadeController@update');
     Route::get('/atividades/{id}/delete', 'AtividadeController@delete');
     Route::delete('/atividades/{id}', 'AtividadeController@destroy');
-    
-
-});
-
-Route::get('/mensagens', 'MensagemController@index');
-Route::middleware(['auth'])-> group(function (){
     Route::get('/mensagens/create', 'MensagemController@create');
     Route::post('/mensagens', 'MensagemController@store');
     Route::get('/mensagens/{id}', 'MensagemController@show');
@@ -38,6 +31,15 @@ Route::middleware(['auth'])-> group(function (){
     Route::put('/mensagens/{id}', 'MensagemController@update');
     Route::get('/mensagens/{id}/delete', 'MensagemController@delete');
     Route::delete('/mensagens/{id}', 'MensagemController@destroy');
+Route::middleware(['auth'])-> group(function (){
+    
+    
+
+});
+
+Route::get('/mensagens', 'MensagemController@index');
+Route::middleware(['auth'])-> group(function (){
+    
     
 });
 
